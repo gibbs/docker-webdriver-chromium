@@ -4,8 +4,11 @@ BUILD_DATE := $(shell date -u "+%Y%m%dT%H%M%SZ")
 build: docker-build push
 .PHONY: build
 
+include .env
+
 docker-build:
 	docker build \
+		--no-cache \
 		-t $(BUILD_NAME):$(BUILD_VERSION) \
 		-t $(BUILD_NAME):$(BUILD_VERSION)-$(BUILD_DATE) \
 		-t $(BUILD_NAME):latest \

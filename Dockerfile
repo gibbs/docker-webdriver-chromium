@@ -3,7 +3,8 @@ LABEL maintainer "Dan Gibbs <dev@dangibbs.co.uk>"
 
 SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
-RUN apk add --update-cache \
+# hadolint ignore=DL3018
+RUN apk add --no-cache \
         bash \
         chromium \
         chromium-chromedriver \
